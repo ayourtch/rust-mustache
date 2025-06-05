@@ -7,7 +7,7 @@ use encoder::Error;
 use super::{Data, to_data};
 
 /// `MapBuilder` is a helper type that construct `Data` types.
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct MapBuilder {
     data: HashMap<String, Data>,
 }
