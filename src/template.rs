@@ -300,7 +300,7 @@ impl<'a> RenderContext<'a> {
                                 match compiler.compile() {
                                     Ok((tokens, _)) => {
                                         /* a trick to reset the flag is to pass an empty string */
-                                        self.inner_fn2_rendered = (src.len() > 0);
+                                        self.inner_fn2_rendered = src.len() > 0;
                                         self.render(&mut vw, stack, &tokens).unwrap_or(())
                                     }
                                     _ => (),
@@ -311,7 +311,7 @@ impl<'a> RenderContext<'a> {
                         let src = f(src.to_string(), &mut f0);
                         if self.inner_fn2_rendered {
                             self.inner_fn2_rendered = false;
-                            try!(self.render_text(wr, &src));
+                            self.render_text(wr, &src)?;
                         } else {
                             let compiler = Compiler::new_with(
                                 self.template.ctx.clone(),
@@ -321,8 +321,8 @@ impl<'a> RenderContext<'a> {
                                 ctag.to_string(),
                             );
 
-                            let (tokens, _) = try!(compiler.compile());
-                            try!(self.render(wr, stack, &tokens));
+                            let (tokens, _) = compiler.compile()?;
+                            self.render(wr, stack, &tokens)?;
                         }
                     }
                 }

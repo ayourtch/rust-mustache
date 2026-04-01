@@ -12,7 +12,7 @@ pub enum Data {
     Vec(Vec<Data>),
     Map(HashMap<String, Data>),
     Fun(RefCell<Box<dyn FnMut(String) -> String + Send>>),
-    Fun2(RefCell<Box<dyn FnMut(String, &mut (dyn FnMut(String) -> String)) -> String + Send>>),
+    Fun2(RefCell<Box<dyn FnMut(String, &mut dyn FnMut(String) -> String) -> String + Send>>),
 }
 
 impl PartialEq for Data {
