@@ -1,6 +1,6 @@
-use template::{self, Template};
-use compiler;
-use {Result, Error};
+use crate::template::{self, Template};
+use crate::compiler;
+use crate::{Result, Error};
 
 use std::fmt;
 use std::fs::File;

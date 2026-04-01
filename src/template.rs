@@ -3,10 +3,10 @@ use std::mem;
 use std::io::Write;
 use std::str;
 
-use compiler::Compiler;
+use crate::compiler::Compiler;
 // for bug!
 use log::{log, error};
-use parser::Token;
+use crate::parser::Token;
 use serde::Serialize;
 
 use super::{Context, Data, Error, Result, to_data};

@@ -2,8 +2,8 @@ use std::fmt;
 use std::io::Error as StdIoError;
 use std::result::Result as StdResult;
 
-use parser;
-use encoder;
+use crate::parser;
+use crate::encoder;
 
 /// Error type for any error within this library.
 ///

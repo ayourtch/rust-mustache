@@ -3,7 +3,7 @@ use std::string::ToString;
 use std::collections::HashMap;
 use serde::Serialize;
 
-use encoder::Error;
+use crate::encoder::Error;
 use super::{Data, to_data};
 
 /// `MapBuilder` is a helper type that construct `Data` types.
